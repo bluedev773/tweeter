@@ -1,0 +1,45 @@
+.new-tweet {
+  width: 100%;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.new-tweet h2 {
+  margin-top: 25px;
+  font-weight: 600;
+  color: #545149;
+}
+
+form {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+}
+
+.tweetFooter {
+  font-family: 'Bungee', cursive;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.tweetFooter button {
+  color: #FFFFFF;
+  background-color: #4056A1;
+}
+
+label {
+  font-size: 25px;
+}
+
+textarea {
+  width: 100%;
+  height: auto;
+  outline: none;
+  resize: none;
+  background-color: #f4f1ec;
+  margin-top: 3px;
+  border: 0;
+  border-bottom: 3px solid #545149;
+}
