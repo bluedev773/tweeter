@@ -43,3 +43,12 @@ textarea {
   border: 0;
   border-bottom: 3px solid #545149;
 }
+
+.error{
+  border: 1px solid;
+  padding: 15px 10px 15px 15px;
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  color: #D8000C;
+  background-color: #FFBABA;
+}

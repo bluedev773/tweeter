@@ -32,10 +32,10 @@ const createTweetElement = function (tweetObject) {
 
 //render tweets
 const renderTweetElements = function (tweets) {
-  for(const tweetObj of tweets) {
+  tweets.slice().reverse().forEach(function(tweetObj){
     const newElement = createTweetElement(tweetObj);
     $(".tweets").append(newElement);
-  }
+  }) 
 };
 
 
@@ -59,20 +59,26 @@ $(document).ready(function() {
   $(function(){
     $('form').submit(function(event) {
       event.preventDefault();
-  
-      const fd = $('form').serialize();
-      console.log($('#tweet-text').val().length);
-      console.log(fd);
+
+      const fd = $('#tweet-text').serialize();
       let url = $('form').attr('action');
-      console.log(url);
+      console.log(fd);
       
       //validate that tweet is more than 0 chars but less than or equal to 140 chars
       if($('#tweet-text').val().length > 140) {
-        alert("tweet is greater than 140 characters!");
+        $(".error").empty();
+        $(`<i class="fas fa-exclamation-triangle"> Tweet exceeds character limit!</i>`).appendTo('.error');
+        $(".error").slideDown().delay(1500).slideUp();
+        
         return false;
       }
       if($('#tweet-text').val().length === 0) {
-        alert("tweet is empty!");
+        $(".error").empty();
+        $(`<i class="fas fa-exclamation-triangle"> Tweet is Empty!</i>`).appendTo('.error');
+        $(".error").slideDown().delay(1500).slideUp();
+
+        //<script>alert("hi")</script>
+        
         return false;
       }
   
