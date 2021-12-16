@@ -1,7 +1,8 @@
-//keep track of character count in textArea
+
 $(document).ready(function(){
   const textArea = $("#tweet-text");
   
+  //keep track of character count in textArea
   textArea.on('input', function(event) {
     const counter = $(this).next().children('output');
     const maxLength = 140;
