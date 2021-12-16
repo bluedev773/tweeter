@@ -81,8 +81,10 @@ $(document).ready(function() {
         url: url,
         data: fd,
       })
-      .done(function(data){
-        console.log(data);
+      //empty and reload tweets when a new one is added
+      .done(function(){
+        $(".tweets").empty();
+        loadTweets();
       });
     })
   });
