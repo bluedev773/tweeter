@@ -26,9 +26,15 @@
 }
 
 .content {
+  width: 90%;
   margin-top: 5px;
   margin-left: 20px;
   font-weight: 600;
+  word-wrap: break-word; 
+}
+
+.content p {
+  word-wrap: break-word; 
 }
 
 .icons {
