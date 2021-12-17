@@ -26,7 +26,6 @@ const createTweetElement = function (tweetObject) {
       <div>
     </footer>
   </article>`;
-
   return tweetElement;
 };
 
@@ -41,6 +40,11 @@ const renderTweetElements = function (tweets) {
 
 $(document).ready(function() {
 
+  //expand text area when in focus
+  $("textarea").focus(function(){
+    $("textarea").attr("rows", 4);
+  });
+
   //load tweets from server and render to page
   const loadTweets = function(){
     $.ajax({
@@ -54,6 +58,10 @@ $(document).ready(function() {
   }
   loadTweets();
 
+  //set focus on textarea when write new tweet button is pressed
+  $(".navTweet").click(function(){
+    $("#tweet-text").focus();
+  });
 
   //handle form submission for new tweets
   $(function(){
@@ -63,22 +71,18 @@ $(document).ready(function() {
       const fd = $('#tweet-text').serialize();
       let url = $('form').attr('action');
       console.log(fd);
-      
+
       //validate that tweet is more than 0 chars but less than or equal to 140 chars
       if($('#tweet-text').val().length > 140) {
         $(".error").empty();
         $(`<i class="fas fa-exclamation-triangle"> Tweet exceeds character limit!</i>`).appendTo('.error');
         $(".error").slideDown().delay(1500).slideUp();
-        
         return false;
       }
       if($('#tweet-text').val().length === 0) {
         $(".error").empty();
         $(`<i class="fas fa-exclamation-triangle"> Tweet is Empty!</i>`).appendTo('.error');
         $(".error").slideDown().delay(1500).slideUp();
-
-        //<script>alert("hi")</script>
-        
         return false;
       }
   
@@ -94,5 +98,4 @@ $(document).ready(function() {
       });
     })
   });
-  
 });

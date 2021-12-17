@@ -3,6 +3,7 @@
   display:flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 25px;
 }
 
 .new-tweet h2 {
@@ -29,17 +30,19 @@ form {
   background-color: #4056A1;
 }
 
-label {
+::placeholder {
   font-size: 25px;
+  font-weight: 600;
 }
 
 textarea {
   width: 100%;
   height: auto;
   outline: none;
+  overflow: hidden;
   resize: none;
   background-color: #f4f1ec;
-  margin-top: 3px;
+  margin-top: 20px;
   border: 0;
   border-bottom: 3px solid #545149;
 }
